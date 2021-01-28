@@ -19,8 +19,6 @@ find . -maxdepth 1 -type f -name "[0-9]*.md" | sort -V | xargs cat > $INTERMEDIA
 # replace all includes to have absolute path, because PDF generation doesn't resolve the relative paths
 /var/relative_to_absolute_path.py
 
-plantuml -checkversion
-exit
 # Generate PDF
 pandoc -s --pdf-engine xelatex --filter=pandoc-plantuml --from=markdown $INTERMEDIATE_MD_FILENAME --output=$PDF_FILE_NAME
 

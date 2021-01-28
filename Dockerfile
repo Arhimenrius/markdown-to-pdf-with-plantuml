@@ -1,11 +1,11 @@
-FROM ubuntu:focal
+FROM ubuntu:groovy
 
 # combine into one run command to reduce image size
 RUN apt-get update
 
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
-RUN apt-get install -y perl wget libfontconfig1 pandoc python3 python3-pip plantuml && \
-    wget -qO- "https://yihui.name/gh/tinytex/tools/install-unx.sh" | sh  && \
+RUN apt-get install -y perl wget libfontconfig1 pandoc python3 python3-pip plantuml
+RUN wget -qO- "https://yihui.name/gh/tinytex/tools/install-unx.sh" | sh  && \
     apt-get clean
 ENV PATH="${PATH}:/root/bin"
 RUN tlmgr install xetex
