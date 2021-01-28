@@ -17,5 +17,9 @@ RUN tlmgr install xcolor pgf fancyhdr parskip babel-english units lastpage mdwto
 
 RUN python3 -m pip install pandoc-plantuml-filter
 
-WORKDIR /var/doc
-COPY build.sh /var/
+# Create directory whlere content will be stored
+RUN mkdir -p /var/doc
+
+COPY build.sh relative_to_absolute_path.py /var/
+
+WORKDIR /var/build
