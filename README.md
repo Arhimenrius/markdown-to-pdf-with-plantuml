@@ -66,6 +66,12 @@ header-includes: |
     \usepackage{graphicx}
     \usepackage{fancyhdr}
     \pagestyle{fancy}
+    
+    \let\oldparagraph\paragraph
+    \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+    \let\oldsubparagraph\subparagraph
+    \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+    
     \rfoot{\includegraphics[width=3cm,valign=c,scale=0.5,margin=0 0 0 0.3cm]{logo.png}}
     \renewcommand{\headrulewidth}{0.4pt}
     \renewcommand{\footrulewidth}{0.4pt}  
