@@ -3,7 +3,8 @@
 NAME='markdown-to-pdf-with-plantuml'
 
 if [[ "$(docker images -q $NAME 2> /dev/null)" == "" ]]; then
-    docker build -t $NAME .
+    SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+    docker build -t $NAME -f $SCRIPT_DIR/Dockerfile $SCRIPT_DIR
 fi
 
 DIRECTORY_TO_VOLUME=$1
