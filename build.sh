@@ -1,15 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -eu
 
 cp -r /var/doc/* .
 
 INTERMEDIATE_MD_FILENAME='complete_markdown.md'
 PDF_FILE_NAME='built_file.pdf'
-BASE_DIR=$(pwd)
 
 # Add new line to every file if missing
 for file in *.md
 do
-    x=`tail -n 1 $file`
+    x=`tail -n 1 "$file"`
     if [ "$x" != "" ]; then echo "" >> $file; fi
 done
 
