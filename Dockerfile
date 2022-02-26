@@ -1,4 +1,4 @@
-FROM ubuntu:groovy
+FROM ubuntu:impish
 
 # combine into one run command to reduce image size
 RUN apt-get update
