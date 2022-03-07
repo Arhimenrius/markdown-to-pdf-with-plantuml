@@ -2,7 +2,7 @@ FROM ubuntu:impish
 
 # combine into one run command to reduce image size
 # Using Finnish mirror due of the CI/CD pipeline
-RUN sed 's|archive.ubuntu.com/ubuntu/|www.nic.funet.fi/pub/mirrors/archive.ubuntu.com/|' -i /etc/apt/sources.list
+RUN sed 's|archive.ubuntu.com/ubuntu/|www.nic.funet.fi/pub/mirrors/archive.ubuntu.com/|' -i /etc/apt/sources.list \
   && apt-get update
 
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
