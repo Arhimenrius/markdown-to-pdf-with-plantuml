@@ -1,7 +1,9 @@
-FROM ubuntu:groovy
+FROM ubuntu:impish
 
 # combine into one run command to reduce image size
-RUN apt-get update
+# Using Finnish mirror due of the CI/CD pipeline
+RUN sed 's|archive.ubuntu.com/ubuntu/|www.nic.funet.fi/pub/mirrors/archive.ubuntu.com/|' -i /etc/apt/sources.list \
+  && apt-get update
 
 RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
 RUN apt-get install -y perl wget libfontconfig1 pandoc python3 python3-pip plantuml
